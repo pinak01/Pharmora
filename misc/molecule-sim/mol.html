@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molecule Viewer</title>
+    <script type="text/javascript" src="./jmol-16.2.31/jsmol/JSmol.min.js"></script> <!-- Update the path -->
+    <style>
+        #jmol {
+            width: 800px;  /* Adjust width as needed */
+            height: 600px; /* Adjust height as needed */
+            border: 1px solid black; /* Optional: Add a border for visibility */
+        }
+    </style>
+</head>
+<body>
+    <h1>Molecule Viewer</h1>
+    <div id="jmol"></div>
+    <script type="text/javascript">
+        var Info = {
+            width: 800,
+            height: 600,
+            debug: false,
+            color: "white",
+            use: "HTML5",
+            j2sPath: "./jmol-16.2.31/jsmol/j2s", // Path to j2s directory
+            jarPath: "./jmol-16.2.31/Jmol.jar", // Path to Jmol.jar file
+            isCompressed: false
+        };
+
+        // Initialize the Jmol applet
+        var jmolApplet = Jmol.getApplet("jmolApplet", Info);
+        document.write(Jmol.getAppletHtml("jmolApplet"));
+
+        // Load your molecule using its canonical SMILES string
+        Jmol.script(jmolApplet, "load smiles:CC(=O)N(C)C1=CC=CC=C1CN(C)C(=O)N(C)C"); // Replace with your SMILES
+    </script>
+</body>
+</html>
